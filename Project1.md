@@ -66,3 +66,63 @@ Open a web browser of your choice and try to access following url
 http://<Public-IP-Address>:80
 
 ![image 6](https://github.com/laola234/Darey.io-Projects-/assets/136293714/abcdc0e4-67c9-470c-91d8-8eae643a174b)
+
+### INSTALLING MYSQL
+
+We need to install a Database Management System (DBMS) to be able to store and manage data for our site in a relational database.
+
+Use ‘apt’ to acquire and install this software with the following command
+
+![image 7](https://github.com/laola234/Darey.io-Projects-/assets/136293714/a829804a-d73d-4c8c-915d-63526bb3a83e)
+
+When the installation is finished, log in to the MySQL console by typing:
+
+$ sudo mysql
+
+![image 8](https://github.com/laola234/Darey.io-Projects-/assets/136293714/8a255335-5896-47ab-a5ef-beb637e08ace)
+
+Your MySQL server is now installed and secured.
+
+### INSTALLING PHP
+
+PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
+
+To install these 3 packages at once, run:
+
+sudo apt install php libapache2-mod-php php-mysql
+
+![image](https://github.com/laola234/Darey.io-Projects-/assets/136293714/84b41c1a-8ec8-40cc-a13d-0a8973fb8bf5)
+
+Once the installation is finished, you can run the following command to confirm your PHP version:
+
+php -v
+
+![image 9](https://github.com/laola234/Darey.io-Projects-/assets/136293714/19ed306f-3609-48a3-aef3-134fa9ddd21a)
+
+At this point, your LAMP stack is completely installed and fully operational.
+
+Linux (Ubuntu)
+Apache HTTP Server
+MySQL
+PHP
+
+
+To test your setup with a PHP script, it’s best to set up a proper Apache Virtual Host to hold your website’s files and folders. Virtual host allows you to have multiple websites located on a single machine and users of the websites will not even notice it.
+
+![image 10](https://github.com/laola234/Darey.io-Projects-/assets/136293714/2c7980ba-4d0e-4941-a883-6fe68f6f5cd9)
+
+We will configure our first Virtual Host in the next step.
+
+### CREATING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE
+
+Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory.
+
+We will create a new directory called projectdock inside the /var/www/ directory using ‘mkdir’ command as follows:
+
+sudo mkdir /var/www/projectdock
+
+Next, assign ownership of the directory with your current system user:
+
+sudo chown -R $USER:$USER /var/www/projectdock
+
+ 
