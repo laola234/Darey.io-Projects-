@@ -27,3 +27,42 @@ ssh -i "Kitan.pem" ubuntu@ec2-18-117-166-177.us-east-2.compute.amazonaws.com
 
 ![image 2](https://github.com/laola234/Darey.io-Projects-/assets/136293714/e6d67436-6d48-4999-ae4f-df7b2df47b97)
 
+Configuring EC2 machine to serve a Web server!
+
+### INSTALLING APACHE AND UPDATING THE FIREWALL
+
+We need to install Apache using Ubuntu’s package manager ‘apt’:
+
+#update a list of packages in package manager
+
+sudo apt update
+
+sudo apt install apache2
+
+To verify that apache2 is running as a Service in our OS, i used following command:
+
+sudo systemctl status apache2
+
+![image 3](https://github.com/laola234/Darey.io-Projects-/assets/136293714/de656743-8389-40ae-8a4d-912f653d9414)
+
+If it shows green and running, that means a Web Server has just been launched in the Clouds!
+
+## We need to add a rule to EC2 configuration to open inbound connection through port 80:
+
+When the instance is created, we have a default TCP rule on port 22 opened which is useful for SSH connection to a terminal. In order to ensure that our webpage are being acccessed on the internet, we need to open a TCP port 80 inbound rule.
+
+![image 4](https://github.com/laola234/Darey.io-Projects-/assets/136293714/aecbcbb5-f86d-4f38-8223-765f0e7236d7)
+
+ We can access it locally in our Ubuntu shell, by running the following command:
+
+ curl http://localhost:80 or curl http://127.0.0.1:80
+
+![image 5](https://github.com/laola234/Darey.io-Projects-/assets/136293714/422df696-65f4-4f1b-bc68-950213c0ed77)
+
+We need to test that the Apache HTTP server can respond to requests from the Internet.
+
+Open a web browser of your choice and try to access following url
+
+http://<Public-IP-Address>:80
+
+![image 6](https://github.com/laola234/Darey.io-Projects-/assets/136293714/abcdc0e4-67c9-470c-91d8-8eae643a174b)
