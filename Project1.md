@@ -25,5 +25,5 @@ Connect to your instance using its Public DNS: by using the command below
 
 ssh -i "Kitan.pem" ubuntu@ec2-18-117-166-177.us-east-2.compute.amazonaws.com
 
-![image 2](https://github.com/laola234/Darey.io-Projects-/assets/136293714/14669969-1aa4-4bfb-976a-21fa6144fb1c)
+![image 2](https://github.com/laola234/Darey.io-Projects-/assets/136293714/e6d67436-6d48-4999-ae4f-df7b2df47b97)
 
