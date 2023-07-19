@@ -81,7 +81,12 @@ $ sudo mysql
 
 ![image 8](https://github.com/laola234/Darey.io-Projects-/assets/136293714/8a255335-5896-47ab-a5ef-beb637e08ace)
 
+It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script you will set a password for the root user, using mysql_native_password as default authentication method.
 Your MySQL server is now installed and secured.
+
+Exit the MySQL shell with:
+
+mysql> exit
 
 ### INSTALLING PHP
 
