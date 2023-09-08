@@ -88,9 +88,25 @@ Exit the MySQL shell with:
 
 mysql> exit
 
-### INSTALLING PHP
+![image 11](https://github.com/laola234/Darey.io-Projects-/assets/136293714/4bdfa0ff-534a-4edf-83ac-fd6315dabd2f)
 
-PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
+Start the interactive script by running:
+
+![image 12](https://github.com/laola234/Darey.io-Projects-/assets/136293714/b50f9c8d-f399-4b79-bdd5-405ecf7ee107)
+
+Once its succcesfully configured, test if you’re able to log in to the MySQL console by typing:
+
+$ sudo mysql -p
+
+![image 14](https://github.com/laola234/Darey.io-Projects-/assets/136293714/7b0df69c-e3f1-442b-ac84-4c8fccaf0cd5)
+
+Exit from the MySQL terminak by typing 
+
+mysql> exit
+
+![image 11](https://github.com/laola234/Darey.io-Projects-/assets/136293714/b14d3065-7328-4669-9c88-1877704bff6d)
+
+You have Apache installed to serve your content and MySQL installed to store and manage your data. PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
 
 To install these 3 packages at once, run:
 
@@ -101,14 +117,16 @@ sudo apt install php libapache2-mod-php php-mysql
 Once the installation is finished, you can run the following command to confirm your PHP version:
 
 php -v
-
-![image 9](https://github.com/laola234/Darey.io-Projects-/assets/136293714/19ed306f-3609-48a3-aef3-134fa9ddd21a)
+![image 16](https://github.com/laola234/Darey.io-Projects-/assets/136293714/f2154048-9c83-406e-9489-85d7ab16700a)
 
 At this point, your LAMP stack is completely installed and fully operational.
 
 Linux (Ubuntu)
+
 Apache HTTP Server
+
 MySQL
+
 PHP
 
 
@@ -122,12 +140,40 @@ We will configure our first Virtual Host in the next step.
 
 Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory.
 
-We will create a new directory called projectdock inside the /var/www/ directory using ‘mkdir’ command as follows:
+We will create a new directory called projectlamp inside the /var/www/ directory using ‘mkdir’ command as follows:
 
-sudo mkdir /var/www/projectdock
+sudo mkdir /var/www/projectlamp
+
+![image 17](https://github.com/laola234/Darey.io-Projects-/assets/136293714/d32a7623-7340-4cf0-a39d-061ee764271f)
 
 Next, assign ownership of the directory with your current system user:
 
-sudo chown -R $USER:$USER /var/www/projectdock
+sudo chown -R $USER:$USER /var/www/projectlamp
 
+![image 18](https://github.com/laola234/Darey.io-Projects-/assets/136293714/206d60b2-6263-4213-884d-1c0f2a3c60a0)
  
+Then, create and open a new configuration file in Apache’s sites-available directory using your preferred command-line editor. Here, we’ll be using vi or vim (They are the same by the way):
+
+sudo vi /etc/apache2/sites-available/projectlamp.conf
+
+![image 19](https://github.com/laola234/Darey.io-Projects-/assets/136293714/1674c74a-2b9d-4d87-85f1-b615cc2b775c)
+
+ou can use the ls command to show the new file in the sites-available directory
+
+sudo ls /etc/apache2/sites-available
+
+![image 20](https://github.com/laola234/Darey.io-Projects-/assets/136293714/ff2faa05-6637-4c2b-a380-82dbfca43969)
+
+With this VirtualHost configuration, we’re telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory. If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
+
+You can now use a2ensite command to enable the new virtual host:
+
+sudo a2ensite projectlamp
+
+![image 21](https://github.com/laola234/Darey.io-Projects-/assets/136293714/c793828e-b41d-4299-974e-720d7a6ffcb4)
+
+To make sure your configuration file doesn’t contain syntax errors, run:
+
+sudo apache2ctl configtest
+
+![image 22](https://github.com/laola234/Darey.io-Projects-/assets/136293714/28a0bea7-ac25-47e6-88c6-1854d7da7b23)
