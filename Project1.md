@@ -177,3 +177,50 @@ To make sure your configuration file doesn’t contain syntax errors, run:
 sudo apache2ctl configtest
 
 ![image 22](https://github.com/laola234/Darey.io-Projects-/assets/136293714/28a0bea7-ac25-47e6-88c6-1854d7da7b23)
+
+Finally, reload Apache so these changes take effect:
+
+sudo systemctl reload apache2
+![image 23](https://github.com/laola234/Darey.io-Projects-/assets/136293714/f525d950-4a7d-4eb3-af3d-2b7ef539ae8f)
+
+## ENABLE PHP ON THE WEBSITE
+
+With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. This is useful for setting up maintenance pages in PHP applications, by creating a temporary index.html file containing an informative message to visitors. Because this page will take precedence over the index.php page, it will then become the landing page for the application. Once maintenance is over, the index.html is renamed or removed from the document root, bringing back the regular application page.
+
+In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive:
+
+sudo vim /etc/apache2/mods-enabled/dir.conf
+
+![image 26](https://github.com/laola234/Darey.io-Projects-/assets/136293714/2d6eba62-53fa-4464-bf59-847244b56f1d)
+
+After saving and closing the file, you will need to reload Apache so the changes take effect:
+
+sudo systemctl reload apache2
+
+![image 24](https://github.com/laola234/Darey.io-Projects-/assets/136293714/75c6e8fa-5730-4505-b866-93a369e1197c)
+
+Finally, we will create a PHP script to test that PHP is correctly installed and configured on your server.
+
+Now that you have a custom location to host your website’s files and folders, we’ll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
+
+Create a new file named index.php inside your custom web root folder:
+
+vim /var/www/projectlamp/index.php
+![image 31](https://github.com/laola234/Darey.io-Projects-/assets/136293714/05d02880-5476-4bdc-9d68-0a2057f45a46)
+
+Create an index.php file in your webserver block and add the following code using the vim editor
+
+<?php
+phpinfo();
+
+
+
+
+
+
+
+
+
+
+
+
