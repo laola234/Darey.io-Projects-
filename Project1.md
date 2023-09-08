@@ -206,12 +206,25 @@ Now that you have a custom location to host your website’s files and folders, 
 Create a new file named index.php inside your custom web root folder:
 
 vim /var/www/projectlamp/index.php
-![image 31](https://github.com/laola234/Darey.io-Projects-/assets/136293714/05d02880-5476-4bdc-9d68-0a2057f45a46)
 
-Create an index.php file in your webserver block and add the following code using the vim editor
+
+
+This will open a blank file. Add the following text, which is valid PHP code, inside the file
 
 <?php
-phpinfo();
+phpinfo
+
+![image 28](https://github.com/laola234/Darey.io-Projects-/assets/136293714/187376d8-b248-4929-94ad-91e0e98ac8c3)
+
+When you are finished, save and close the file, refresh the page and you will see a page similar to this:
+
+![image 30](https://github.com/laola234/Darey.io-Projects-/assets/136293714/8b8450f4-2769-4435-84b3-353962aa1e50)
+
+After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
+
+sudo rm /var/www/projectlamp/index.php
+![image 31](https://github.com/laola234/Darey.io-Projects-/assets/136293714/372a33fe-4aa4-463e-be0c-2a17da4c8c4e)
+
 
 
 
